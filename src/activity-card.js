@@ -1,11 +1,21 @@
 import React from 'react';
 import './App.css';
 
-function ActivityCard(props) {
+function ActivityCard({ activity }) {
 
 
     return (
-        <div className="activity-card">{props.count}</div>
+        <div className="activity-card">
+            <p>
+                {activity.name}
+            </p>
+            <p>
+                Price: {activity.price}
+            </p>
+            <p>
+                Duration: {activity.minDuration}-{activity.maxDuration} hours
+            </p>
+        </div>
     )
 }
 

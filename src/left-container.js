@@ -1,22 +1,34 @@
 import React from 'react';
-import './App.css';
-import FilterComponent from './filter-component'
+import FilterCollapsibleGroup from './filter-collapsible-group'
 
-function LeftContainer(props) {
-    const filterArr = ["Free", "0-20", "20-40", "40+", "Price", "Season", "Indoor v. Outdoor", "Restaurant?"]
+function LeftContainer({ createFilterInput, filterActivities, filterInputs, filterData, resetFilters, toggleCheck, toggleRadio }) {
+    // let filterArr = ["Free", "0-20", "20-40", "40+", "Indoor", "Outdoor", "Restaurant", "Not Restaurant", "Spring", "Summer", "Fall", "Winter"]
+    // filterArr = ["Indoor"];
+
+
+    const handleClearFilters = function () {
+        resetFilters();
+    }
 
     return (
-        <div class="filter-container">
-            {Object.values(filterArr).map((value, idx) => {
-                return (
-                    <FilterComponent count={value}/>
-                )
-            })}
+        <div className="filter-container">
+            <button onClick={handleClearFilters}>Clear All Filters</button>
+            {
+                Object.entries(filterData).map(([category, categoryObject], idx) => {
+                    return (
+                        <FilterCollapsibleGroup
+                            category={category}
+                            createFilterInput={createFilterInput}
+                            filterInputs={filterInputs}
+                            categoryObject={categoryObject}
+                            toggleCheck={toggleCheck}
+                            toggleRadio={toggleRadio}
+                            filterActivities={filterActivities}
+                            key={idx}
+                        />
+                    )
+                })}
         </div>
-    )
-
-    return (
-        <div id="filter-box">Left Container</div>
     )
 }
 

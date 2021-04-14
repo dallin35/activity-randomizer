@@ -1,0 +1,84 @@
+{
+    "categories": [
+        {
+            "id": 1,
+            "category": "Price",
+            "inputType": "checkbox",
+            "checked": false,
+            "displayValues": [
+                "Free",
+                "0-10",
+                "10-20",
+                "20-40",
+                "40+"
+            ],
+            "keyValuePairs": [
+                {"price": "free"},
+                {"price": "0-10"},
+                {"price": "10-20"},
+                {"price": "20-40"},
+                {"price": "40+"}
+            ]
+        },
+        {
+            "id": 2,
+            "category": "Indoor/Outdoor",
+            "inputType": "radio",
+            "checked": false,
+            "displayValues": [
+                "Indoor",
+                "Outdoor"
+            ],
+            "keyValuePairs": [
+                {"isIndoor": 1},
+                {"isOutdoor": 1}
+            ]
+        },
+        {
+            "id": 3,
+            "category": "Restaurant",
+            "inputType": "radio",
+            "checked": false,
+            "displayValues": [
+                true,
+                false
+            ],
+            "keyValuePairs": [
+                {"isRestaurant": 1},
+                {"isRestaurant": 0}
+            ]
+        },
+        {
+            "id": 4,
+            "category": "Seasons",
+            "inputType": "checkbox",
+            "checked": false,
+            "displayValues": [
+                "Spring",
+                "Summer",
+                "Fall",
+                "Winter"
+            ],
+            "keyValuePairs": [
+                {"inSpring": 1},
+                {"inSummer": 1},
+                {"inFall": 1},
+                {"inWinter": 1}
+            ]
+        },
+        {
+            "id": 5,
+            "category": "Snack",
+            "inputType": "radio",
+            "checked": false,
+            "displayValues": [
+                true,
+                false
+            ],
+            "keyValuePairs": [
+                {"isSnack": 1},
+                {"isSnack": 0}
+            ]
+        }
+    ]
+}

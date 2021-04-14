@@ -1,24 +1,34 @@
 import React from 'react';
 import ActivityCard from './activity-card';
-import "./App.css";
 
-function Home(props) {
+function Home({ activities }) {
 
-    const cardCountArr = [];
+    // const cardCountArr = [];
 
-    for (let i=0; i<150; i++) {
-        cardCountArr.push(i+1);
+    // for (let i = 0; i < 150; i++) {
+    //     cardCountArr.push(i + 1);
+    // }
+    if (Object.values(activities).length > 0) {
+        return (
+            <div className="home-content">
+                {Object.values(activities).map((activity, idx) => {
+                    return (
+                        <ActivityCard key={activity.id} activity={activity} />
+                    )
+                })}
+            </div>
+        )
+    } else {
+        return (
+            <div className="home-content">
+                <div className="activity-card">
+                    <p>
+                        Sorry, it looks like there aren't any activities that match your requirements yet.
+                </p>
+                </div>
+            </div>
+        )
     }
-
-    return (
-        <div class="home-content">
-            {Object.values(cardCountArr).map((count, idx) => {
-                return (
-                    <ActivityCard count={count}/>
-                )
-            })}
-        </div>
-    )
 }
 
 export default Home;
