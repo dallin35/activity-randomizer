@@ -12,7 +12,7 @@ function HeaderContainer({ selectRandomActivity, clearRandomActivity }) {
     }
 
     const backToTop = function () {
-        scroll.scrollToTop();
+        scroll.scrollToTop({smooth: true, duration: 250});
     }
 
     return (
