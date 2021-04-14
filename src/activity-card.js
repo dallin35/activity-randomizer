@@ -2,20 +2,24 @@ import React from 'react';
 import './App.css';
 
 function ActivityCard({ activity }) {
-
+    let cssClass = activity?.style ?? "activity-card"
+    let cssId = activity?.randomId ?? ""
 
     return (
-        <div className="activity-card">
-            <p>
-                {activity.name}
-            </p>
-            <p>
-                Price: {activity.price}
-            </p>
-            <p>
-                Duration: {activity.minDuration}-{activity.maxDuration} hours
-            </p>
-        </div>
+        <>
+            <div className={cssClass}>
+                <p>
+                    {activity.name}
+                </p>
+                <p>
+                    Price: {activity.price}
+                </p>
+                <p>
+                    Duration: {activity.minDuration}-{activity.maxDuration} hours
+                </p>
+            </div>
+            <div id={cssId} />
+        </>
     )
 }
 

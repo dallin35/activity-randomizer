@@ -1,21 +1,36 @@
 import React from 'react';
+import {animateScroll as scroll} from 'react-scroll';
 
-function HeaderContainer(props) {
+function HeaderContainer({ selectRandomActivity, clearRandomActivity }) {
 
-    let handleRandomClick = function () {
-        console.log("a random activity");
+    const handleRandomClick = function () {
+        selectRandomActivity();
+    }
+
+    const handleClearRandom = function () {
+        clearRandomActivity();
+    }
+
+    const backToTop = function () {
+        scroll.scrollToTop();
     }
 
     return (
-        <>
-            <div className="right-header"></div>
+        <div className="header-container">
+            <div className="left-header"></div>
             <div className="center-header">Activity Randomizer</div>
             <div className="right-header">
                 <div className="random-button" onClick={handleRandomClick}>
-                    Random Activity
+                    Random
+                </div>
+                <div className="random-button" onClick={handleClearRandom}>
+                    Clear
+                </div>
+                <div className="random-button" onClick={backToTop}>
+                    To Top
                 </div>
             </div>
-        </>
+        </ div>
     )
 }
 

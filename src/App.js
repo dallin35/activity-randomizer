@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { v4 as uuidv4, validate as uuidValidate } from 'uuid'
+import { Link, animateScroll as scroll } from "react-scroll";
 import './App.css';
 import './activity-data.json'
 import Home from './home';
@@ -286,6 +287,7 @@ function App() {
   }
 
   const filterActivities = function () {
+    clearRandomActivity();
     const allActivities = [...activityData];
     let newActivities = [];
 
@@ -302,15 +304,86 @@ function App() {
     initializeFilters();
     setFilterInputs(newFilterInputs);
     setFilterValues({});
+    clearRandomActivity();
 
     setActivities(activityData);
   }
 
+  const [previousRandomActivity, setPreviousRandomActivity] = useState()
+
+  const clearRandomActivity = function () {
+    const newActivities = [...activities];
+
+    if (previousRandomActivity !== undefined) {
+
+      if (previousRandomActivity > newActivities.length - 1) {
+        setPreviousRandomActivity(undefined);
+      } else {
+        const exRandomActivity = newActivities[previousRandomActivity]
+        delete exRandomActivity.style;
+        delete exRandomActivity.randomId;
+
+        // if (previousRandomActivity > 3) {
+        //   const jumpToActivity = newActivities[previousRandomActivity - 4];
+        //   delete jumpToActivity["randomId"];
+        // }
+
+        setPreviousRandomActivity(undefined);
+
+      }
+
+      setActivities(newActivities);
+    }
+  }
+
+  const selectRandomActivity = function () {
+    clearRandomActivity();
+
+    const newActivities = [...activities];
+
+    const randomNum = Math.floor(Math.random() * newActivities.length);
+
+    setPreviousRandomActivity(randomNum)
+
+    const newActivity = newActivities[randomNum];
+
+    // if (randomNum > 3) {
+    //   const jumpToActivity = newActivities[randomNum - 4];
+    //   jumpToActivity["randomId"] = "selected-activity";
+    // } 
+    // else {
+    //   newActivity["randomId"] = "selected-activity";
+    //   newActivity["top "]
+    // }
+
+    newActivity["style"] = "selected-activity-card"
+    newActivity["randomId"] = "selected-activity";
+
+    setActivities(newActivities);
+  }
+
+  useEffect(() => {
+    scrollToActivity();
+  }, [previousRandomActivity]);
+
+  const scrollToActivity = function () {
+
+    let elem = document.getElementById("selected-activity");
+
+    if (elem !== null) {
+      let rect = elem.getBoundingClientRect();
+      console.log(rect);
+      scroll.scrollMore(rect.y, {to: "selected-activity", smooth:true, duration:750})
+    }
+  }
 
   return (
     <>
-      <div className="header-container">
-        <HeaderContainer />
+      <div>
+        <HeaderContainer
+          selectRandomActivity={selectRandomActivity}
+          clearRandomActivity={clearRandomActivity}
+        />
       </div>
       <div id="content">
         <div className="left-container">
@@ -330,9 +403,6 @@ function App() {
           <br />
         </div>
       </div>
-      {/* <div className="footer-container">
-        <FooterContainer />
-      </div> */}
     </>
 
   );

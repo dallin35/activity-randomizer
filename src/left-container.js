@@ -12,7 +12,7 @@ function LeftContainer({ createFilterInput, filterActivities, filterInputs, filt
 
     return (
         <div className="filter-container">
-            <button onClick={handleClearFilters}>Clear All Filters</button>
+            <div className="clear-filter-button" onClick={handleClearFilters}>Clear All Filters</div>
             {
                 Object.entries(filterData).map(([category, categoryObject], idx) => {
                     return (
