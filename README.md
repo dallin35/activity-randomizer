@@ -14,6 +14,7 @@ Access the live application [here](http://activity-randomizer-bucket.s3-website-
 
 ## To Do
 
+* [] Reorganize the file structure of the project.
 * [] Make the app mobile friendly
 * [] Add animations
 * [] Expand activity options (ONGOING)

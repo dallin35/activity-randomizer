@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 
 function ActivityCard({ activity }) {
     let cssClass = activity?.style ?? "activity-card"

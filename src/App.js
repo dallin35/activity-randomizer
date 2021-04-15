@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { v4 as uuidv4} from 'uuid'
 import { animateScroll as scroll } from "react-scroll";
-import './App.css';
-import './activity-data.json'
-import Home from './home';
-import HeaderContainer from './header-container'
-import LeftContainer from './left-container'
+import './styles/App.css';
+import Home from './components/home';
+import HeaderContainer from './components/header-container'
+import LeftContainer from './components/left-container'
 
 function App() {
 
-  const activityDataJSON = require('./activity-data.json');
+  const activityDataJSON = require('./data-files/activity-data.json');
   const activityData = activityDataJSON.activities.slice();
 
-  const filterDataJSON = require('./filter-data.json');
+  const filterDataJSON = require('./data-files/filter-data.json');
   const filterData = [...filterDataJSON.categories];
 
   const filters = [...filterData];

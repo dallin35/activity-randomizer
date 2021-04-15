@@ -20,7 +20,7 @@ function HeaderContainer({ selectRandomActivity, clearRandomActivity }) {
             <div className="left-header"></div>
             <div className="center-header">Activity Randomizer</div>
             <div className="center-header-sm">
-                <img className="logo-img" src="./logo.png" alt="Website Logo" />
+                <img className="logo-img" src="../logo.png" alt="Website Logo" />
             </div>
             <div className="right-header">
                 <div className="random-button" onClick={handleRandomClick}>
