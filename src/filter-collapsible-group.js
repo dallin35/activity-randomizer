@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid'
 import FilterInput from './filter-input';
 
 
-function FilterCollapsibleGroup({ createFilterInput, filterActivities, filterInputs, categoryObject, toggleCheck, toggleRadio }) {
+function FilterCollapsibleGroup({ filterInputs, categoryObject, toggleCheck, toggleRadio }) {
 
     const [toggle, setToggle] = useState(false);
-    let filterOptions;
 
     // function handleCallback() {
     //     callback();
@@ -27,10 +25,10 @@ function FilterCollapsibleGroup({ createFilterInput, filterActivities, filterInp
             {toggle ? (
                 <div className="filter-content collapsible">
                     {
-                        Object.values(filterInputs).map((value, idx,) => {
+                        Object.values(filterInputs).map((value, idx) => {
                             if (value.category === categoryObject.category) {
                                 return (
-                                    <>
+                                    <div key={idx}>
                                         <FilterInput
                                             id={value.id}
                                             category={value.category}
@@ -39,18 +37,20 @@ function FilterCollapsibleGroup({ createFilterInput, filterActivities, filterInp
                                             value={value.displayValue}
                                             toggleCheck={toggleCheck}
                                             toggleRadio={toggleRadio}
-                                            filterActivities={filterActivities}
-                                            key={idx}
                                         />
                                         <br />
-                                    </>
+                                    </ div>
+                                )
+                            } else {
+                                return (
+                                    <div key={idx}></div>
                                 )
                             }
 
                         })
                     }
                 </div>
-            ) : null}
+            ) : ""}
         </div>
     )
 }

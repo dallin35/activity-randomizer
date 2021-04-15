@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function FilterInput({ id, category, type, checked, value, toggleCheck, toggleRadio, filterActivities }) {
+export default function FilterInput({ id, category, type, checked, value, toggleCheck, toggleRadio }) {
 
     let handleChange = function () {
         toggleCheck(id)

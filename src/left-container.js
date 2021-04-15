@@ -1,7 +1,7 @@
 import React from 'react';
 import FilterCollapsibleGroup from './filter-collapsible-group'
 
-function LeftContainer({ createFilterInput, filterActivities, filterInputs, filterData, resetFilters, toggleCheck, toggleRadio }) {
+function LeftContainer({ createFilterInput, filterInputs, filterData, resetFilters, toggleCheck, toggleRadio }) {
     // let filterArr = ["Free", "0-20", "20-40", "40+", "Indoor", "Outdoor", "Restaurant", "Not Restaurant", "Spring", "Summer", "Fall", "Winter"]
     // filterArr = ["Indoor"];
 
@@ -23,7 +23,6 @@ function LeftContainer({ createFilterInput, filterActivities, filterInputs, filt
                             categoryObject={categoryObject}
                             toggleCheck={toggleCheck}
                             toggleRadio={toggleRadio}
-                            filterActivities={filterActivities}
                             key={idx}
                         />
                     )

@@ -1,12 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { v4 as uuidv4, validate as uuidValidate } from 'uuid'
-import { Link, animateScroll as scroll } from "react-scroll";
+import React, { useState, useEffect } from 'react';
+import { v4 as uuidv4} from 'uuid'
+import { animateScroll as scroll } from "react-scroll";
 import './App.css';
 import './activity-data.json'
 import Home from './home';
 import HeaderContainer from './header-container'
 import LeftContainer from './left-container'
-import FooterContainer from './footer-container'
 
 function App() {
 
@@ -16,10 +15,9 @@ function App() {
   const filterDataJSON = require('./filter-data.json');
   const filterData = [...filterDataJSON.categories];
 
-  const callbacks = {}
-
+  const filters = [...filterData];
   const [activities, setActivities] = useState(activityData);;
-  const [filters, setFilters] = useState(filterData);
+  // const [filters, setFilters] = useState(filterData);
   const [filterValues, setFilterValues] = useState({});
 
   let newFilterInputs = [];
@@ -70,6 +68,7 @@ function App() {
     } else {
       delete newFilterValues[id];
     }
+    filterActivities(newFilterValues);
     setFilterValues(newFilterValues);
   }
 
@@ -96,21 +95,18 @@ function App() {
     } else {
       delete newFilterValues[Object.keys(filterInput.keyValuePair)[0]];
     }
+    filterActivities(newFilterValues);
     setFilterValues(newFilterValues);
   }
 
-  useEffect(() => {
-    filterActivities();
-  }, [filterValues]);
-
-  const filterPrice = function (activities) {
+  const filterPrice = function (activities, theseFilters) {
     let newActivities = [];
     let shouldAdd = false;
     let priceFilters = [];
 
-    for (const property in filterValues) {
-      if (Object.keys(filterValues[property])[0] === "price") {
-        priceFilters.push(Object.values(filterValues[property])[0]);
+    for (const property in theseFilters) {
+      if (Object.keys(theseFilters[property])[0] === "price") {
+        priceFilters.push(Object.values(theseFilters[property])[0]);
       }
     }
 
@@ -137,14 +133,14 @@ function App() {
     return newActivities
   }
 
-  const filterBoolean = function (activities, fieldName) {
+  const filterBoolean = function (activities, fieldName, theseFilters) {
     let newActivities = [];
     let shouldAdd = false;
     let booleanFilters = [];
 
-    for (const property in filterValues) {
-      if (Object.keys(filterValues[property])[0] === fieldName) {
-        booleanFilters.push(Object.values(filterValues[property])[0]);
+    for (const property in theseFilters) {
+      if (Object.keys(theseFilters[property])[0] === fieldName) {
+        booleanFilters.push(Object.values(theseFilters[property])[0]);
       }
     }
 
@@ -170,17 +166,17 @@ function App() {
     return newActivities
   }
 
-  const filterIndoorOutdoor = function (activities) {
+  const filterIndoorOutdoor = function (activities, theseFilters) {
     let newActivities = [];
     let shouldAdd = false;
     let indoorFilters = [];
     let outdoorFilters = [];
 
-    for (const property in filterValues) {
-      if (Object.keys(filterValues[property])[0] === "isIndoor") {
-        indoorFilters.push(Object.values(filterValues[property])[0]);
-      } else if (Object.keys(filterValues[property])[0] === "isOutdoor") {
-        outdoorFilters.push(Object.values(filterValues[property])[0])
+    for (const property in theseFilters) {
+      if (Object.keys(theseFilters[property])[0] === "isIndoor") {
+        indoorFilters.push(Object.values(theseFilters[property])[0]);
+      } else if (Object.keys(theseFilters[property])[0] === "isOutdoor") {
+        outdoorFilters.push(Object.values(theseFilters[property])[0])
       }
     }
 
@@ -222,7 +218,7 @@ function App() {
     return newActivities
   }
 
-  const filterSeasons = function (activities) {
+  const filterSeasons = function (activities, theseFilters) {
     let newActivities = [];
     let shouldAdd = false;
     let seasonCount = 0;
@@ -231,17 +227,17 @@ function App() {
     let isFall = false;
     let isWinter = false;
 
-    for (const property in filterValues) {
-      if (Object.keys(filterValues[property])[0] === "inSpring") {
+    for (const property in theseFilters) {
+      if (Object.keys(theseFilters[property])[0] === "inSpring") {
         isSpring = true;
         seasonCount += 1;
-      } else if (Object.keys(filterValues[property])[0] === "inSummer") {
+      } else if (Object.keys(theseFilters[property])[0] === "inSummer") {
         isSummer = true;
         seasonCount += 1;
-      } else if (Object.keys(filterValues[property])[0] === "inFall") {
+      } else if (Object.keys(theseFilters[property])[0] === "inFall") {
         isFall = true;
         seasonCount += 1;
-      } else if (Object.keys(filterValues[property])[0] === "inWinter") {
+      } else if (Object.keys(theseFilters[property])[0] === "inWinter") {
         isWinter = true;
         seasonCount += 1;
       }
@@ -286,19 +282,28 @@ function App() {
     return newActivities
   }
 
-  const filterActivities = function () {
+  const filterActivities = function (theseFilterValues) {
     clearRandomActivity();
     const allActivities = [...activityData];
     let newActivities = [];
 
-    newActivities = filterPrice(allActivities);
-    newActivities = filterIndoorOutdoor(newActivities);
-    newActivities = filterBoolean(newActivities, "isRestaurant");
-    newActivities = filterBoolean(newActivities, "isSnack");
-    newActivities = filterSeasons(newActivities);
+    newActivities = filterPrice(allActivities, theseFilterValues);
+    newActivities = filterIndoorOutdoor(newActivities, theseFilterValues);
+    newActivities = filterBoolean(newActivities, "isRestaurant", theseFilterValues);
+    newActivities = filterBoolean(newActivities, "isSnack", theseFilterValues);
+    newActivities = filterSeasons(newActivities, theseFilterValues);
 
-    setActivities(newActivities);
+    setActivities(() => {
+      console.log("get it");
+      console.log(newActivities);
+      return newActivities;
+    });
   }
+
+  // useEffect(() => {
+  //   filterActivities();
+  // }, [filterValues]);
+
 
   const resetFilters = function () {
     initializeFilters();
@@ -372,7 +377,6 @@ function App() {
 
     if (elem !== null) {
       let rect = elem.getBoundingClientRect();
-      console.log(rect);
       scroll.scrollMore(rect.y, {to: "selected-activity", smooth:true, duration:750})
     }
   }
@@ -394,7 +398,6 @@ function App() {
             filterData={filters}
             toggleCheck={toggleCheck}
             toggleRadio={toggleRadio}
-            filterActivities={filterActivities}
           />
         </div>
         <div className="home">
