@@ -90,7 +90,7 @@
 
   .selected-activity-card {
     background-color: #ffcccc;
-    flex: 1 0 30%;
+    flex: 1 0 25%;
     margin: 0.5em;
     padding: 1em;
     min-width: 130px;
