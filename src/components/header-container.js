@@ -33,11 +33,11 @@ function HeaderContainer({ selectRandomActivity, clearRandomActivity, hamburgerS
     return (
         <div className="header-container">
             <div className="left-header">
-                <a href="#0" className={"container flex-left " + hamburgerState.hamburger} onClick={animateMenu}>
+                <div className={"container flex-left " + hamburgerState.hamburger} onClick={animateMenu}>
                     <div className="bar1"></div>
                     <div className="bar2"></div>
                     <div className="bar3"></div>
-                </a>
+                </div>
                 <img className="logo-img flex-left" src="../logo.png" alt="Website Logo" />
             </div>
             <div className="center-header">Activity Randomizer</div>
