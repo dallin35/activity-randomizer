@@ -397,7 +397,7 @@ function App() {
             />
           </div>
         </div>
-        <div className="home cut-home-content">
+        <div className="home">
           <Home activities={activities} />
           <br />
           <br />
