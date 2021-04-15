@@ -13,9 +13,9 @@ function ActivityCard({ activity }) {
                 <p>
                     Price: {activity.price}
                 </p>
-                {/* <p>
+                <p>
                     Duration: {activity.minDuration}-{activity.maxDuration} hours
-                </p> */}
+                </p>
             </div>
             <div id={cssId} />
         </>
