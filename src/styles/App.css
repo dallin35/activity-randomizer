@@ -108,7 +108,7 @@
   background-color: lightgray;
 }
 
-.button:active{
+.button:hover{
   background-color: lightsalmon;
 }
 
