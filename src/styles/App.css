@@ -144,6 +144,14 @@
     display: flex;
     /* flex-direction: row; */
   }
+
+  .hide-it {
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    width: 0;
+  }
 }
 
 #selected-activity {

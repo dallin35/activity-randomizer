@@ -26,7 +26,7 @@ function HeaderContainer({ selectRandomActivity, clearRandomActivity }) {
                 <div className="random-button" onClick={handleRandomClick}>
                     Random
                 </div>
-                <div className="random-button" onClick={handleClearRandom}>
+                <div className="random-button hide-it" onClick={handleClearRandom}>
                     Clear
                 </div>
                 <div className="random-button" onClick={backToTop}>

@@ -12,9 +12,16 @@ If you would like to apply filters to the activity list in order to receive more
 
 Access the live application [here](http://activity-randomizer-bucket.s3-website-us-east-1.amazonaws.com/)
 
+Access the GitHub Repository [here](https://github.com/dallin35/activity-randomizer)
+
+## Technical Details
+
+* This is a React application
+* It has been hosted in AWS S3
+* It has been set up with CI/CD through github actions
+
 ## To Do
 
-* [] Reorganize the file structure of the project.
 * [] Make the app mobile friendly
 * [] Add animations
 * [] Expand activity options (ONGOING)
@@ -26,3 +33,4 @@ Access the live application [here](http://activity-randomizer-bucket.s3-website-
 ## To Done
 
 * [x] Update the README
+* [x] Reorganize the file structure of the project.
