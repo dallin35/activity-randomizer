@@ -102,8 +102,4 @@
     box-shadow: 5px 5px 5px lightgray;
   }
 
-  .button:hover, .button:active{
-    background-color: lightsalmon;
-  }
-
 }

@@ -108,6 +108,10 @@
   background-color: lightgray;
 }
 
+.button:active{
+  background-color: lightsalmon;
+}
+
 .collapsible {
   background-color: lightgray;
   color: #444;
