@@ -81,8 +81,8 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
     padding: 0.5em;
-    padding-left: 5rem;
-    padding-right: 5rem;
+    /* padding-left: 5rem;
+    padding-right: 5rem; */
   }
 
   .activity-card {
