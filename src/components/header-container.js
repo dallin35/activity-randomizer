@@ -1,7 +1,7 @@
 import React from 'react';
-import {animateScroll as scroll} from 'react-scroll';
+import { animateScroll as scroll } from 'react-scroll';
 
-function HeaderContainer({ selectRandomActivity, clearRandomActivity }) {
+function HeaderContainer({ selectRandomActivity, clearRandomActivity, hamburgerState, setHamburgerState }) {
 
     const handleRandomClick = function () {
         selectRandomActivity();
@@ -12,7 +12,21 @@ function HeaderContainer({ selectRandomActivity, clearRandomActivity }) {
     }
 
     const backToTop = function () {
-        scroll.scrollToTop({smooth: true, duration: 250});
+        scroll.scrollToTop({ smooth: true, duration: 250 });
+    }
+
+    function animateMenu() {
+        const newHamburgerState = {...hamburgerState};
+        
+        if  (newHamburgerState["hamburger"] === "") {
+            newHamburgerState["hamburger"] = "change";
+            newHamburgerState["hamburgerSlide"] = "cd-panel--is-visible";
+        } else {
+            newHamburgerState["hamburger"] = ""
+            newHamburgerState["hamburgerSlide"] = ""
+        }
+
+        setHamburgerState(newHamburgerState);
     }
 
     return (
@@ -20,7 +34,12 @@ function HeaderContainer({ selectRandomActivity, clearRandomActivity }) {
             <div className="left-header"></div>
             <div className="center-header">Activity Randomizer</div>
             <div className="center-header-sm">
-                <img className="logo-img" src="../logo.png" alt="Website Logo" />
+                <a href="#0" className={"container flex-left " + hamburgerState.hamburger} onClick={animateMenu}>
+                    <div className="bar1"></div>
+                    <div className="bar2"></div>
+                    <div className="bar3"></div>
+                </a>
+                <img className="logo-img flex-left" src="../logo.png" alt="Website Logo" />
             </div>
             <div className="right-header">
                 <div className="random-button" onClick={handleRandomClick}>

@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { v4 as uuidv4} from 'uuid'
+import { v4 as uuidv4 } from 'uuid'
 import { animateScroll as scroll } from "react-scroll";
 import './styles/App.css';
+import './styles/mobile.css';
+import './styles/hamburger-menu.css';
+import './styles/browser.css';
 import Home from './components/home';
 import HeaderContainer from './components/header-container'
 import LeftContainer from './components/left-container'
@@ -17,6 +20,8 @@ function App() {
   const filters = [...filterData];
   const [activities, setActivities] = useState(activityData);;
   const [filterValues, setFilterValues] = useState({});
+
+  const [hamburgerState, setHamburgerState] = useState({hamburger: "", hamburgerSlide: ""});
 
   let newFilterInputs = [];
 
@@ -357,36 +362,41 @@ function App() {
 
     if (elem !== null) {
       let rect = elem.getBoundingClientRect();
-      scroll.scrollMore(rect.y, {to: "selected-activity", smooth:true, duration:750})
+      scroll.scrollMore(rect.y, { to: "selected-activity", smooth: true, duration: 750 })
     }
   }
 
   return (
-    <>
+    <div>
       <div>
         <HeaderContainer
           selectRandomActivity={selectRandomActivity}
           clearRandomActivity={clearRandomActivity}
+          hamburgerState={hamburgerState}
+          setHamburgerState={setHamburgerState}
         />
       </div>
       <div id="content">
-        <div className="left-container">
-          <LeftContainer
-            resetFilters={resetFilters}
-            filterInputs={filterInputs}
-            createFilterInput={createFilterInput}
-            filterData={filters}
-            toggleCheck={toggleCheck}
-            toggleRadio={toggleRadio}
-          />
+        <div id="slide-panel" className={"left-container cd-panel cd-panel--from-left js-cd-panel-main " + hamburgerState["hamburgerSlide"]}>
+          <div className="cd-panel__header" />
+          <div className="cd-panel__container">
+            <LeftContainer
+              resetFilters={resetFilters}
+              filterInputs={filterInputs}
+              createFilterInput={createFilterInput}
+              filterData={filters}
+              toggleCheck={toggleCheck}
+              toggleRadio={toggleRadio}
+            />
+          </div>
         </div>
-        <div className="home">
+        <div className="home cut-home-content">
           <Home activities={activities} />
           <br />
           <br />
         </div>
       </div>
-    </>
+    </div>
 
   );
 }
