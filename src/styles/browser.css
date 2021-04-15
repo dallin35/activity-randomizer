@@ -85,4 +85,15 @@
     border-radius: 10px;
     box-shadow: 5px 5px 5px lightgray;
   }
+
+  .selected-activity-card {
+    background-color: #ffcccc;
+    flex: 1 0 20%;
+    margin: 0.5em;
+    padding: 1em;
+    min-width: 150px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px lightgray;
+  }
+
 }
