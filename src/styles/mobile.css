@@ -108,6 +108,7 @@
     position: absolute;
     background-color: #e6e6e6;
     width: 80%;
+    max-width: 360px;
     height: 100%;
     top: 0;
     transition: transform 0.3s 0.3s;
