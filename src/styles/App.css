@@ -47,6 +47,21 @@
   z-index: 10000;
 } */
 
+.left-header {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  display: flex;
+  flex-direction: row;
+  padding-left: 20px;
+  font-size: 30px;
+  font-weight: 700;
+  font-family: "Libre Baskerville", serif;
+  justify-content: left;
+  font-weight: normal;
+  text-align: center;
+  visibility: visible;
+}
+
 .button:hover {
   background-color: lightsalmon;
 }
