@@ -22,7 +22,8 @@
     padding: 20px;
     font-size: 30px;
     font-weight: 700;
-    font-family: "Libre Baskerville", serif;
+    /* color: white; */
+    font-family: arial, sans-serif;
     justify-content: center;
     font-weight: normal;
     text-align: center;

@@ -26,6 +26,11 @@
   }
 }
 
+@font-face {
+  font-family: 'CaviarDreams';
+  src: local('CaviarDreams'), url(../fonts/CaviarDreams.ttf) format('ttf');
+}
+
 #selected-activity {
   display: block;
   height: 70px;

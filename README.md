@@ -22,8 +22,6 @@ Access the GitHub Repository [here](https://github.com/dallin35/activity-randomi
 
 ## To Do
 
-* [] Make the app mobile friendly
-* [] Add animations
 * [] Expand activity options (ONGOING)
 * [] Add "details" field to Activity Data
 * [] Add "coordinates" field(s) to Activity Data
@@ -34,3 +32,5 @@ Access the GitHub Repository [here](https://github.com/dallin35/activity-randomi
 
 * [x] Update the README
 * [x] Reorganize the file structure of the project.
+* [x] Make the app mobile friendly
+* [x] Add animations
