@@ -17,7 +17,6 @@ function App() {
 
   const filters = [...filterData];
   const [activities, setActivities] = useState(activityData);;
-  // const [filters, setFilters] = useState(filterData);
   const [filterValues, setFilterValues] = useState({});
 
   let newFilterInputs = [];
@@ -300,10 +299,6 @@ function App() {
     });
   }
 
-  // useEffect(() => {
-  //   filterActivities();
-  // }, [filterValues]);
-
 
   const resetFilters = function () {
     initializeFilters();
@@ -328,11 +323,6 @@ function App() {
         delete exRandomActivity.style;
         delete exRandomActivity.randomId;
 
-        // if (previousRandomActivity > 3) {
-        //   const jumpToActivity = newActivities[previousRandomActivity - 4];
-        //   delete jumpToActivity["randomId"];
-        // }
-
         setPreviousRandomActivity(undefined);
 
       }
@@ -351,15 +341,6 @@ function App() {
     setPreviousRandomActivity(randomNum)
 
     const newActivity = newActivities[randomNum];
-
-    // if (randomNum > 3) {
-    //   const jumpToActivity = newActivities[randomNum - 4];
-    //   jumpToActivity["randomId"] = "selected-activity";
-    // } 
-    // else {
-    //   newActivity["randomId"] = "selected-activity";
-    //   newActivity["top "]
-    // }
 
     newActivity["style"] = "selected-activity-card"
     newActivity["randomId"] = "selected-activity";
