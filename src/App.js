@@ -4,7 +4,7 @@ import { animateScroll as scroll } from "react-scroll";
 import './styles/App.css';
 import './styles/mobile.css';
 import './styles/hamburger-menu.css';
-// import './styles/hamburger-slide.css';
+import './styles/hamburger-slide.css';
 import './styles/browser.css';
 import Home from './components/home';
 import HeaderContainer from './components/header-container'

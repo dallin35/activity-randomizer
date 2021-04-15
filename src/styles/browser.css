@@ -53,14 +53,14 @@
     top: 70px;
     overflow-x: hidden;
     overflow-y: auto;
-    display: flex;
-    flex-direction: row;
-    align-content: stretch;
+    /* display: flex;
+    flex-direction: row; */
+    /* align-content: stretch; */
     min-height: 100vh;
     scroll-behavior: smooth;
   }
 
-  .left-container {
+  /* .left-container {
     background-color: #e6e6e6;
     width: 300px;
     min-width: 220px;
@@ -69,6 +69,10 @@
     min-height: 100%;
     position: relative;
     justify-content: center;
+  } */
+
+  .left-container {
+    width: 20%;
   }
 
   .home-content {
@@ -105,4 +109,17 @@
     background-color: lightsalmon;
   }
 
+  /* 
+  HAMBURGER SLIDE
+  */
+
+  .cd-panel__container {
+    /*...*/
+    position: absolute;
+    background-color: #e6e6e6;
+    width: 30%;
+    height: 100%;
+    top: 0;
+    transition: transform 0.3s 0.3s;
+  }
 }
