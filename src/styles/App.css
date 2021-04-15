@@ -49,10 +49,6 @@
 
 .random-button {
   flex: 1 1 20%;
-  background-color: lightcoral;
-  color: white;
-  word-wrap: normal;
-  border-radius: 5px;
   min-width: 60px;
   max-width: 20%;
   margin: 0.25em;
@@ -61,24 +57,21 @@
   cursor: pointer;
 }
 
-.random-button:hover {
-  background-color: lightsalmon;
+
+.button {
+  background-color: lightcoral;
+  color: white;
+  word-wrap: normal;
+  border-radius: 5px;
 }
 
 .clear-filter-button {
-  background-color: lightcoral;
   text-align: center;
-  color: white;
   width: 50%;
+  max-width: 110px;
   margin: 0.5rem;
-  word-wrap: normal;
-  border-radius: 5px;
   padding: 0.25em;
   cursor: pointer;
-}
-
-.clear-filter-button:hover {
-  background-color: lightsalmon;
 }
 
 .home {

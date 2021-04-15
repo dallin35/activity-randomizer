@@ -4,6 +4,7 @@ import { animateScroll as scroll } from "react-scroll";
 import './styles/App.css';
 import './styles/mobile.css';
 import './styles/hamburger-menu.css';
+// import './styles/hamburger-slide.css';
 import './styles/browser.css';
 import Home from './components/home';
 import HeaderContainer from './components/header-container'
@@ -297,8 +298,6 @@ function App() {
     newActivities = filterSeasons(newActivities, theseFilterValues);
 
     setActivities(() => {
-      console.log("get it");
-      console.log(newActivities);
       return newActivities;
     });
   }
@@ -337,6 +336,13 @@ function App() {
 
   const selectRandomActivity = function () {
     clearRandomActivity();
+    let newHamState = {...hamburgerState};
+
+    if (hamburgerState.hamburger !== "") {
+
+      newHamState.hamburger = "";
+      newHamState.hamburgerSlide = "";
+    }
 
     const newActivities = [...activities];
 
@@ -349,6 +355,7 @@ function App() {
     newActivity["style"] = "selected-activity-card"
     newActivity["randomId"] = "selected-activity";
 
+    setHamburgerState(newHamState);
     setActivities(newActivities);
   }
 

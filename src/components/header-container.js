@@ -16,6 +16,7 @@ function HeaderContainer({ selectRandomActivity, clearRandomActivity, hamburgerS
     }
 
     function animateMenu() {
+        scroll.scrollToTop({ smooth: true, duration: 250 });
         const newHamburgerState = {...hamburgerState};
         
         if  (newHamburgerState["hamburger"] === "") {
@@ -31,9 +32,7 @@ function HeaderContainer({ selectRandomActivity, clearRandomActivity, hamburgerS
 
     return (
         <div className="header-container">
-            <div className="left-header"></div>
-            <div className="center-header">Activity Randomizer</div>
-            <div className="center-header-sm">
+            <div className="left-header">
                 <a href="#0" className={"container flex-left " + hamburgerState.hamburger} onClick={animateMenu}>
                     <div className="bar1"></div>
                     <div className="bar2"></div>
@@ -41,14 +40,15 @@ function HeaderContainer({ selectRandomActivity, clearRandomActivity, hamburgerS
                 </a>
                 <img className="logo-img flex-left" src="../logo.png" alt="Website Logo" />
             </div>
+            <div className="center-header">Activity Randomizer</div>
             <div className="right-header">
-                <div className="random-button" onClick={handleRandomClick}>
+                <div className="button random-button" onClick={handleRandomClick}>
                     Random
                 </div>
-                <div className="random-button hide-it" onClick={handleClearRandom}>
+                <div className="button random-button hide-it" onClick={handleClearRandom}>
                     Clear
                 </div>
-                <div className="random-button" onClick={backToTop}>
+                <div className="button random-button" onClick={backToTop}>
                     To Top
                 </div>
             </div>

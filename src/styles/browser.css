@@ -29,8 +29,11 @@
     visibility: visible;
   }
 
-  .center-header-sm {
-    visibility: hidden;
+  .left-header {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    padding: 20px;
+    font-size: 30px;
   }
 
   .right-header {
@@ -82,18 +85,24 @@
     padding: 1em;
     background-color: #f2f2f2;
     min-width: 150px;
+    max-width: 40%;
     border-radius: 10px;
     box-shadow: 5px 5px 5px lightgray;
-  }
+}
 
-  .selected-activity-card {
+.selected-activity-card {
     background-color: #ffcccc;
     flex: 1 0 20%;
     margin: 0.5em;
     padding: 1em;
     min-width: 150px;
+    max-width: 40%;
     border-radius: 10px;
     box-shadow: 5px 5px 5px lightgray;
+  }
+
+  .button:hover, .button:active{
+    background-color: lightsalmon;
   }
 
 }
