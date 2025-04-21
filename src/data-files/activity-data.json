@@ -1439,6 +1439,22 @@
             "isOutdoor": 1,
             "isSnack": 0,
             "isRestaurant": 0
-        }        
+        },
+        {
+            "id": 97,
+            "name": "Tin Mines Trail",
+            "price": "free",
+            "minDuration": 2,
+            "maxDuration": 6,
+            "inSpring": 1,
+            "inSummer": 0,
+            "inFall": 1,
+            "inWinter": 1,
+            "isIndoor": 0,
+            "isOutdoor": 1,
+            "isSnack": 0,
+            "isRestaurant": 0
+        }      
+
     ]
 }
