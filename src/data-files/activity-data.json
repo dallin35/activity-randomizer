@@ -1439,6 +1439,21 @@
             "isOutdoor": 1,
             "isSnack": 0,
             "isRestaurant": 0
+        },
+        {
+            "id": 97,
+            "name": "Top Golf",
+            "price": "50+",
+            "minDuration": 1,
+            "maxDuration": 3,
+            "inSpring": 1,
+            "inSummer": 1,
+            "inFall": 1,
+            "inWinter": 1,
+            "isIndoor": 1,
+            "isOutdoor": 1,
+            "isSnack": 0,
+            "isRestaurant": 0
         }
 
     ]
