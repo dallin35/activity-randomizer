@@ -1486,6 +1486,22 @@
             "isOutdoor": 0,
             "isSnack": 1,
             "isRestaurant": 1
+        },
+        {
+        
+            "id": 100,
+            "name": "Live Jazz At International",
+            "price": "Free",
+            "minDuration": 1,
+            "maxDuration": 4,
+            "inSpring": 1,
+            "inSummer": 1,
+            "inFall": 1,
+            "inWinter": 1,
+            "isIndoor": 1,
+            "isOutdoor": 1,
+            "isSnack": 0,
+            "isRestaurant": 0
         }
     ]
 }
