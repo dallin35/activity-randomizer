@@ -1,4 +1,5 @@
 # Activity Randomizer
+## Updating the readme
 
 Created By: Dallin Fairbanks
 

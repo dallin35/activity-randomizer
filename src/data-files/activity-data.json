@@ -1470,7 +1470,22 @@
             "isOutdoor": 0,
             "isSnack": 0,
             "isRestaurant": 0
+        },
+        {
+        
+            "id": 99,
+            "name": "Flix",
+            "price": "20-50",
+            "minDuration": 2,
+            "maxDuration": 4,
+            "inSpring": 1,
+            "inSummer": 1,
+            "inFall": 1,
+            "inWinter": 1,
+            "isIndoor": 1,
+            "isOutdoor": 0,
+            "isSnack": 1,
+            "isRestaurant": 1
         }
-
     ]
 }
