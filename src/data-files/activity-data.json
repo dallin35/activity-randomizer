@@ -1493,7 +1493,7 @@
             "name": "Live Jazz At International",
             "price": "Free",
             "minDuration": 1,
-            "maxDuration": 4,
+            "maxDuration": 3,
             "inSpring": 1,
             "inSummer": 1,
             "inFall": 1,
